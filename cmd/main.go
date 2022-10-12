@@ -19,7 +19,6 @@ func main() {
 
 	repositories := repository.NewRepository(dbConn)
 	services := service.NewService(repositories)
-
 	handlers := handler.NewHandler(services)
 
 	httpServer := &server.Server{}

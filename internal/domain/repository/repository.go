@@ -6,17 +6,18 @@ import (
 )
 
 type Track interface {
-	GetOne(id uint) (*entity.Track, error)
+	GetOne(id string) (*entity.Track, error)
 	GetAll() (*[]entity.Track, error)
+	GetByUser(id string) (*[]entity.Track, error)
 	Create(track *entity.Track) (*entity.Track, error)
-	Delete(id uint) error
+	Delete(id string) error
 }
 
 type User interface {
-	GetOne(id uint) (*entity.User, error)
+	GetOne(id string) (*entity.User, error)
 	GetAll() (*[]entity.User, error)
 	Create(user *entity.User) (*entity.User, error)
-	Delete(id uint) error
+	Delete(id string) error
 }
 
 type Repository struct {

@@ -13,7 +13,7 @@ func NewUserRepository(db *gorm.DB) *UserRepository {
 	return &UserRepository{db: db}
 }
 
-func (r *UserRepository) GetOne(id uint) (*entity.User, error) {
+func (r *UserRepository) GetOne(id string) (*entity.User, error) {
 	user := &entity.User{}
 	if err := r.db.First(user, id).Error; err != nil {
 		return nil, err
@@ -36,7 +36,7 @@ func (r *UserRepository) Create(user *entity.User) (*entity.User, error) {
 	return user, nil
 }
 
-func (r *UserRepository) Delete(id uint) error {
+func (r *UserRepository) Delete(id string) error {
 	if err := r.db.Delete(&entity.User{}, id).Error; err != nil {
 		return err
 	}
