@@ -16,7 +16,7 @@ func responseEntityToJSON(entity interface{}, ctx *gin.Context) {
 	ctx.Data(http.StatusOK, "application/json", byteData)
 }
 
-func (h *Handler) getAllUser(ctx *gin.Context) {
+func (h *Handler) getAllTracks(ctx *gin.Context) {
 	tracks := &[]entity.Track{}
 	tracks, err := h.services.Track.GetAll()
 	if err != nil {

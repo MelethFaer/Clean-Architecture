@@ -15,7 +15,7 @@ func NewHandler(services *service.Service) *Handler {
 
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
-	router.GET("/tracks", h.getAllUser)
+	router.GET("/tracks", h.getAllTracks)
 	router.GET("/tracks/user/:id", h.getUserPlaylist)
 	return router
 }
